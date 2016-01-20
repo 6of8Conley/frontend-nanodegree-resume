@@ -12,10 +12,12 @@ console.log = (Awesomethought);
 
 $("#main").append(funthoughts);
 
-FormatedName = HTMLheaderName.replace("%data%", "Charles Conley");
+var name = "Charles Conley";
+var role = "IT Manager";
 
-$("#header").append(FormatedName);
+FormatedName = HTMLheaderName.replace("%data%", name);
 
-FormatedRole = HTMLheaderRole.replace("%data", "IT Manager")
+FormatedRole = HTMLheaderRole.replace("%data%", role);
 
-$("#header").append(FormatedRole);
+$("#header").prepend(FormatedRole);
+$("#header").prepend(FormatedName);
