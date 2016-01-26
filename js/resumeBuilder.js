@@ -65,17 +65,28 @@ $("#main").append(work.city);
 // shows all property keys but not values.
 // $("#main").append(Object.keys(ed));
 
-//example JSON
-var education = [
-{"school": "Wayne State",
-"schoolcity": "Detroit",
-"major": "Chemical Engineering",
-"graduation": "1999"
-},
-{"school": "GSU",
-"schoolcity": "Atlanta",
-"major": "MBA",
-"graduation": "2009"}]
+//nested example JSON
+
+var education = {
+"schools": [
+	{"school": "Wayne State",
+	"schoolcity": "Detroit",
+	"major": "Chemical Engineering",
+	"graduation": "1999"
+	},
+	{"school": "GSU",
+	"schoolcity": "Atlanta",
+	"major": "MBA",
+	"graduation": "2009"
+	}],
+"onlineCourses": [
+	{"title": "Git Basics",
+	"school": "Udacity",
+	"year": "2015" },
+	{"title": "Front End Design",
+	"school": "Udacity",
+	"year": "2016" }]
+}
 ;
 
 
