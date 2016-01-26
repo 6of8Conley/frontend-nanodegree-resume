@@ -36,13 +36,47 @@ $("#main").append(bio.skills);
 $("#main").append(bio.welcomeMsg);
 $("#main").append(bio.city);
 
-var work ={}
+var work = new Object();
 work.current = "Cox Automotive ";
 work.title = "Operations Manager ";
 work.years = 5;
-work.ciry = "Atlanta ";
+work.city = " Atlanta ";
 
-
-
-
+//Dot object example
 $("#main").append(work.current);
+$("#main").append(work.title);
+$("#main").append(work.years);
+$("#main").append(work.city);
+
+// Alternatively could have used var ed = {};
+//var ed = new Object();
+
+// Bracket object example
+// You can check for mistakes at http://jsonlint.com/
+
+//ed["School"] = " GSU";
+//ed["Years"] = " 2007-2009";
+//ed["City"] = " Atlanta";
+//$("#main").append(ed.School);
+//$("#main").append(ed.Years);
+//$("#main").append(ed.City);
+
+
+// shows all property keys but not values.
+// $("#main").append(Object.keys(ed));
+
+//example JSON
+var education = [
+{"school": "Wayne State",
+"schoolcity": "Detroit",
+"major": "Chemical Engineering",
+"graduation": "1999"
+},
+{"school": "GSU",
+"schoolcity": "Atlanta",
+"major": "MBA",
+"graduation": "2009"}]
+;
+
+
+
