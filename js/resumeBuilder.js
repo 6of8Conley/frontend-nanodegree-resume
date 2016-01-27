@@ -1,7 +1,7 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
-
+/*
 var name = "Charles Conley";
 var role = "IT Manager";
 
@@ -11,81 +11,96 @@ FormatedRole = HTMLheaderRole.replace("%data%", role);
 
 $("#header").prepend(FormatedRole);
 $("#header").prepend(FormatedName);
-
-var skills = ["Running ", "Fishing ", "Typing "];
+*/
 
 var bio = {
 		"name": "Charles Conley ", 
 		"role": "Operations Manager ", 
-		"contactinfo": {
+		"contacts": {
 			"email" : "charles.conley@gmail.com ",
-			"phone" : "404-808-5421 "
+			"mobile" : "404-808-5421 "
 			}, 
 		"picURL": "images/me.png ",
-		"welcomeMsg" : "Hello World ",
-		"skills" : skills 
+		"welcomeMessage" : "Hello World ",
+		"skills" : ["Running ", "Fishing ", "Typing "]
 	};
 
-bio.city = "Atlanta";
+var work = {
+"jobs": [
+	{"employer": "Childrens Hospital",
+	"title": "Research Assistant",
+	"location": "Detroit, MI",
+	"dates": "1997-1999",
+	"description": "Rat Surgeon"
+	},
+	{"employer": "Realestate.com",
+	"title": "System Administrator",
+	"location": "Atlanta, GA",
+	"dates": "1999-2001",
+	"description": ".Com Millionaire"
+	},
+	{"employer": "e-gatematrix",
+	"title": "Senior System Administrator",
+	"location": "Atlanta, GA",
+	"dates": "2001-2005",
+	"description": "Second startup"
+	},
+	{"employer": "Cox Communications",
+	"title": "Senior System Administrator",
+	"location": "Atlanta, GA",
+	"dates": "2006-2011",
+	"description": "Fortune 500 Company, 17th largest private company in America"
+	}]}
 
-$("#main").append(bio.name);
-$("#main").append(bio.role);
-$("#main").append(bio.contactinfo.phone);
-$("#main").append(bio.picURL);
-$("#main").append(bio.skills);
-$("#main").append(bio.welcomeMsg);
-$("#main").append(bio.city);
+var projects = {
+"jobs": [
+	{"title": "Childrens Hospital",
+	"dates": "Research Assistant",
+	"description": "Detroit, MI",
+	"images": "1997-1999"
+	},
+	{"title": "Childrens Hospital",
+	"dates": "Research Assistant",
+	"description": "Detroit, MI",
+	"images": "1997-1999"
+	},
+	{"title": "Childrens Hospital",
+	"dates": "Research Assistant",
+	"description": "Detroit, MI",
+	"images": "1997-1999"
+	},
+	{"title": "Childrens Hospital",
+	"dates": "Research Assistant",
+	"description": "Detroit, MI",
+	"images": "1997-1999"
+	}]}
 
-var work = new Object();
-work.current = "Cox Automotive ";
-work.title = "Operations Manager ";
-work.years = 5;
-work.city = " Atlanta ";
-
-//Dot object example
-$("#main").append(work.current);
-$("#main").append(work.title);
-$("#main").append(work.years);
-$("#main").append(work.city);
-
-// Alternatively could have used var ed = {};
-//var ed = new Object();
-
-// Bracket object example
-// You can check for mistakes at http://jsonlint.com/
-
-//ed["School"] = " GSU";
-//ed["Years"] = " 2007-2009";
-//ed["City"] = " Atlanta";
-//$("#main").append(ed.School);
-//$("#main").append(ed.Years);
-//$("#main").append(ed.City);
-
-
-// shows all property keys but not values.
-// $("#main").append(Object.keys(ed));
-
-//nested example JSON
 
 var education = {
 "schools": [
-	{"school": "Wayne State",
-	"schoolcity": "Detroit",
+	{"name": "Wayne State",
+	"location": "Detroit",
+	"degree": "Bachlor of Sciences",
 	"major": "Chemical Engineering",
-	"graduation": "1999"
+	"dates": "1999",
+	"url": "1999"
 	},
-	{"school": "GSU",
-	"schoolcity": "Atlanta",
-	"major": "MBA",
-	"graduation": "2009"
+	{"name": "Georgia State University",
+	"location": "Atlanta",
+	"degree": "Masters",
+	"major": "Business Administration",
+	"dates": "1999",
+	"url": "http://www.gsu.edu/"
 	}],
 "onlineCourses": [
 	{"title": "Git Basics",
 	"school": "Udacity",
-	"year": "2015" },
+	"dates": "2015" ,
+	"url": "https://www.udacity.com" },
 	{"title": "Front End Design",
 	"school": "Udacity",
-	"year": "2016" }]
+	"year": "2016",
+	"url": "https://www.udacity.com" }]
 }
 ;
 
