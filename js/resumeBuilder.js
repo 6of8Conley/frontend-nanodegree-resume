@@ -13,6 +13,7 @@ $("#header").prepend(FormatedRole);
 $("#header").prepend(FormatedName);
 */
 
+
 var bio = {
 		"name": "Charles Conley ", 
 		"role": "Operations Manager ", 
@@ -24,6 +25,19 @@ var bio = {
 		"welcomeMessage" : "Hello World ",
 		"skills" : ["Running ", "Fishing ", "Typing "]
 	};
+
+if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		FormatedSkills = HTMLskills.replace("%data%", bio.skills[0]);
+		$("#skills").append(FormatedSkills);
+		FormatedSkills = HTMLskills.replace("%data%", bio.skills[1]);
+		$("#skills").append(FormatedSkills);
+		FormatedSkills = HTMLskills.replace("%data%", bio.skills[2]);
+		$("#skills").append(FormatedSkills)};
+
+//FormatedSkills = HTMLskills.replace("%data%", bio.skills);
+//if (bio.skills.length > 0) {$("#skills").append(FormatedSkills)};
+
 
 var work = {
 "jobs": [
@@ -51,6 +65,21 @@ var work = {
 	"dates": "2006-2011",
 	"description": "Fortune 500 Company, 17th largest private company in America"
 	}]}
+
+for(var employer in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+	var FormatedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[employer].employer);
+	var FormatedTitle = HTMLworkTitle.replace("%data%", work.jobs[employer].title);
+	
+	//new
+	var formatedEmployerTitle = FormatedEmployer + FormatedTitle;
+	$(".work-entry:last").append(formatedEmployerTitle);
+	
+	//old
+	//$("#workExperience").append(FormatedEmployer, FormatedTitle);
+	//console.log(work.jobs[employer].title)
+};
+
 
 var projects = {
 "jobs": [
