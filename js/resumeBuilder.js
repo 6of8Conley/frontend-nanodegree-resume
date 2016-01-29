@@ -16,12 +16,12 @@ $("#header").prepend(FormatedName);
 
 var bio = {
 		"name": "Charles Conley ", 
-		"role": "Operations Manager ", 
+		"role": "ITOM Manager ", 
 		"contacts": {
 			"email" : "charles.conley@gmail.com ",
 			"mobile" : "404-808-5421 "
 			}, 
-		"picURL": "images/me.png ",
+		"picURL": "images/me.png",
 		"welcomeMessage" : "Hello World ",
 		"skills" : ["Running ", "Fishing ", "Typing "]
 	};
@@ -35,6 +35,14 @@ if (bio.skills.length > 0) {
 		FormatedSkills = HTMLskills.replace("%data%", bio.skills[2]);
 		$("#skills").append(FormatedSkills)};
 
+
+FormatedName = HTMLheaderName.replace("%data%", bio.name);
+FormatedRole = HTMLheaderRole.replace("%data%", bio.role);
+FormatedPic = HTMLbioPic.replace("%data%", bio.picURL);
+
+$("#header").prepend(FormatedRole);
+$("#header").prepend(FormatedName);
+$("#header").prepend(FormatedPic);
 //FormatedSkills = HTMLskills.replace("%data%", bio.skills);
 //if (bio.skills.length > 0) {$("#skills").append(FormatedSkills)};
 
@@ -57,7 +65,7 @@ var work = {
 	"title": "Senior System Administrator",
 	"location": "Atlanta, GA",
 	"dates": "2001-2005",
-	"description": "Second startup"
+	"description": "Second startup. Businesses that use eGate’s end-to-end travel management products gain increased control, speed and accuracy of their daily operations. This enables eGate’s customers to optimize performance, streamline operations, reduce costs, increase revenue-generating opportunities while improving the overall passenger experience."
 	},
 	{"employer": "Cox Communications",
 	"title": "Senior System Administrator",
@@ -70,11 +78,13 @@ for(var employer in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 	var FormatedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[employer].employer);
 	var FormatedTitle = HTMLworkTitle.replace("%data%", work.jobs[employer].title);
-	
+	var FormatedDates = HTMLworkDates.replace("%data%", work.jobs[employer].dates);
+	var FormatedDescripton = HTMLworkDescription.replace("%data%", work.jobs[employer].description);
 	//new
 	var formatedEmployerTitle = FormatedEmployer + FormatedTitle;
 	$(".work-entry:last").append(formatedEmployerTitle);
-	
+	$(".work-entry:last").append(FormatedDates);
+	$(".work-entry:last").append(FormatedDescripton);
 	//old
 	//$("#workExperience").append(FormatedEmployer, FormatedTitle);
 	//console.log(work.jobs[employer].title)
