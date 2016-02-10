@@ -13,6 +13,7 @@ $("#header").prepend(FormatedRole);
 $("#header").prepend(FormatedName);
 */
 
+$("#main").append(internationalizeButton);
 
 var bio = {
 		"name": "Charles Conley ", 
@@ -25,6 +26,18 @@ var bio = {
 		"welcomeMessage" : "Hello World ",
 		"skills" : ["Running ", "Fishing ", "Typing "]
 	};
+
+
+function inName() {
+	var parts = [] ;
+	parts = bio.name.split(" ");
+	firstname = parts[0];
+	lastname = parts[1].toUpperCase();
+	bio.name = firstname  + " " + lastname;
+	return bio.name;
+};
+
+
 
 if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
@@ -74,6 +87,9 @@ var work = {
 	"description": "Fortune 500 Company, 17th largest private company in America"
 	}]}
 
+
+function displayWork() {
+
 for(var employer in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 	var FormatedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[employer].employer);
@@ -89,7 +105,17 @@ for(var employer in work.jobs) {
 	//$("#workExperience").append(FormatedEmployer, FormatedTitle);
 	//console.log(work.jobs[employer].title)
 };
+};
 
+//runs function
+displayWork();
+
+//logs clicks
+$(document).click(function(loc) {
+var x =  loc.pageX;
+var y = loc.pageY;
+logClicks(x,y)
+});
 
 var projects = {
 "jobs": [
