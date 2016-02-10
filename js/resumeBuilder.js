@@ -119,27 +119,32 @@ logClicks(x,y)
 
 var projects = {
 "jobs": [
-	{"title": "Childrens Hospital",
-	"dates": "Research Assistant",
-	"description": "Detroit, MI",
-	"images": "1997-1999"
+	{"title": "AtlantaDanceCommunity.com",
+	"dates": "2014-2016",
+	"description": "Reviews and postings for creative dance in the greater Atlanta Area",
+	"images": "images/ballet-04.jpeg"
 	},
-	{"title": "Childrens Hospital",
-	"dates": "Research Assistant",
-	"description": "Detroit, MI",
-	"images": "1997-1999"
-	},
-	{"title": "Childrens Hospital",
-	"dates": "Research Assistant",
-	"description": "Detroit, MI",
-	"images": "1997-1999"
-	},
-	{"title": "Childrens Hospital",
-	"dates": "Research Assistant",
-	"description": "Detroit, MI",
-	"images": "1997-1999"
+	{"title": "uDacity Resume Site",
+	"dates": "2015-2016",
+	"description": "Learning Java Scripting and JQuery",
+	"images":"images/ballet-03.jpeg"
 	}]}
 
+
+projects.display = function display() {
+	for(var title in projects.jobs) {
+	$("#projects").append(HTMLprojectStart);
+	var FormatedTitle = HTMLprojectTitle.replace("%data%", projects.jobs[title].title);
+	var FormatedDates = HTMLprojectDates.replace("%data%", projects.jobs[title].dates);
+	var FormatedImage = HTMLprojectImage.replace("%data%", projects.jobs[title].images);
+	var FormatedDescripton = HTMLprojectDescription.replace("%data%", projects.jobs[title].description);
+	$(".project-entry:last").append(FormatedTitle);
+	$(".project-entry:last").append(FormatedDates);
+	$(".project-entry:last").append(FormatedDescripton);
+	$(".project-entry:last").append(FormatedImage);
+}};
+
+projects.display();
 
 var education = {
 "schools": [
