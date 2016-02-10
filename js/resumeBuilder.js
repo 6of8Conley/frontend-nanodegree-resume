@@ -20,44 +20,58 @@ var bio = {
 		"role": "ITOM Manager ", 
 		"contacts": {
 			"email" : "charles.conley@gmail.com ",
-			"mobile" : "404-808-5421 "
+			"mobile" : "404-808-5421 ",
+			"location" : "Atlanta GA"
 			}, 
 		"picURL": "images/me.png",
 		"welcomeMessage" : "Hello World ",
-		"skills" : ["Running ", "Fishing ", "Typing "]
+		"skills" : ["Running ", "Fishing ", "Typing ", "One Punch"]
 	};
 
+bio.display = function display() {
+	FormatedName = HTMLheaderName.replace("%data%", bio.name);
+	FormatedRole = HTMLheaderRole.replace("%data%", bio.role);
+	FormatedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	FormatedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	FormatedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+	FormatedPic = HTMLbioPic.replace("%data%", bio.picURL);
+	$("#header:last").prepend(FormatedRole);
+	$("#header:last").prepend(FormatedName);
+	$("#topContacts:last").prepend(FormatedMobile);
+	$("#topContacts:last").prepend(FormatedEmail);
+	$("#topContacts:last").prepend(FormatedLocation);
+	$("#header:last").append(FormatedPic);
+	$("#header:last").append(HTMLskillsStart);
 
-function inName() {
-	var parts = [] ;
-	parts = bio.name.split(" ");
-	firstname = parts[0];
-	lastname = parts[1].toUpperCase();
-	bio.name = firstname  + " " + lastname;
-	return bio.name;
+	for(var skills in bio.skills) {
+		//$("#workExperience").append(HTMLworkStart);
+		FormatedSkills = HTMLskills.replace("%data%", bio.skills[skills]);
+		$("#skills").append(FormatedSkills);
+};
 };
 
+//runs function
+bio.display();
+
+var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
+var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
+var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
+var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
+var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
+var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
+var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 
-if (bio.skills.length > 0) {
-		$("#header").append(HTMLskillsStart);
-		FormatedSkills = HTMLskills.replace("%data%", bio.skills[0]);
-		$("#skills").append(FormatedSkills);
-		FormatedSkills = HTMLskills.replace("%data%", bio.skills[1]);
-		$("#skills").append(FormatedSkills);
-		FormatedSkills = HTMLskills.replace("%data%", bio.skills[2]);
-		$("#skills").append(FormatedSkills)};
 
 
-FormatedName = HTMLheaderName.replace("%data%", bio.name);
-FormatedRole = HTMLheaderRole.replace("%data%", bio.role);
-FormatedPic = HTMLbioPic.replace("%data%", bio.picURL);
 
-$("#header").prepend(FormatedRole);
-$("#header").prepend(FormatedName);
-$("#header").prepend(FormatedPic);
-//FormatedSkills = HTMLskills.replace("%data%", bio.skills);
-//if (bio.skills.length > 0) {$("#skills").append(FormatedSkills)};
+
+
+
+
+
+
+
 
 
 var work = {
@@ -88,7 +102,8 @@ var work = {
 	}]}
 
 
-function displayWork() {
+//Adds display function to array
+work.display = function display() {
 
 for(var employer in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
@@ -96,26 +111,17 @@ for(var employer in work.jobs) {
 	var FormatedTitle = HTMLworkTitle.replace("%data%", work.jobs[employer].title);
 	var FormatedDates = HTMLworkDates.replace("%data%", work.jobs[employer].dates);
 	var FormatedDescripton = HTMLworkDescription.replace("%data%", work.jobs[employer].description);
-	//new
 	var formatedEmployerTitle = FormatedEmployer + FormatedTitle;
 	$(".work-entry:last").append(formatedEmployerTitle);
 	$(".work-entry:last").append(FormatedDates);
 	$(".work-entry:last").append(FormatedDescripton);
-	//old
-	//$("#workExperience").append(FormatedEmployer, FormatedTitle);
-	//console.log(work.jobs[employer].title)
 };
 };
 
 //runs function
-displayWork();
+work.display();
 
-//logs clicks
-$(document).click(function(loc) {
-var x =  loc.pageX;
-var y = loc.pageY;
-logClicks(x,y)
-});
+
 
 var projects = {
 "jobs": [
@@ -144,35 +150,91 @@ projects.display = function display() {
 	$(".project-entry:last").append(FormatedImage);
 }};
 
+
 projects.display();
 
 var education = {
 "schools": [
-	{"name": "Wayne State",
-	"location": "Detroit",
+	{"name": "Wayne State University",
+	"location": "Detroit ",
 	"degree": "Bachlor of Sciences",
 	"major": "Chemical Engineering",
-	"dates": "1999",
-	"url": "1999"
+	"dates": "1999 ",
+	"url": "https://wayne.edu/"
 	},
 	{"name": "Georgia State University",
-	"location": "Atlanta",
+	"location": "Atlanta ",
 	"degree": "Masters",
 	"major": "Business Administration",
-	"dates": "1999",
+	"dates": "1999 ",
 	"url": "http://www.gsu.edu/"
 	}],
 "onlineCourses": [
 	{"title": "Git Basics",
 	"school": "Udacity",
-	"dates": "2015" ,
-	"url": "https://www.udacity.com" },
+	"year": "2015 " ,
+	"url": "https://www.udacity.com " },
 	{"title": "Front End Design",
 	"school": "Udacity",
-	"year": "2016",
-	"url": "https://www.udacity.com" }]
+	"year": "2016 ",
+	"url": "https://www.udacity.com " }]
+};
+
+education.display = function display() {
+
+	for(var name in education.schools) {
+	$("#education").append(HTMLschoolStart);
+	var FormatedSchool = HTMLschoolName.replace("%data%", education.schools[name].name);
+	var FormatedDegree = HTMLschoolDegree.replace("%data%", education.schools[name].degree);
+	var FormatedMajor = HTMLschoolMajor.replace("%data%", education.schools[name].major);
+	var FormatedDates = HTMLschoolDates.replace("%data%", education.schools[name].dates);
+	var FormatedLocation = HTMLschoolLocation.replace("%data%", education.schools[name].location);
+	//var FormatedURL = HTMLDates.replace("%data%", education.schools[name].url);
+	$(".education-entry:last").append(FormatedSchool);
+	$(".education-entry:last").append(FormatedDegree);
+	$(".education-entry:last").append(FormatedDates);
+	$(".education-entry:last").append(FormatedLocation);
+	//$(".education-entry:last").append(FormatedURL);
+};
+$("#education").append(HTMLonlineClasses);
+	for(var title in education.onlineCourses) {
+	$("#education").append(HTMLschoolStart);
+	var FormatedoDegree = HTMLonlineTitle.replace("%data%", education.onlineCourses[title].title);
+	var FormatedoSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[title].school);
+	var FormatedoDates = HTMLonlineDates.replace("%data%", education.onlineCourses[title].year);
+	var FormatedoURL = HTMLonlineURL.replace("%data%", education.onlineCourses[title].url);
+	$(".education-entry:last").append(FormatedoDegree);
+	$(".education-entry:last").append(FormatedoSchool);
+	$(".education-entry:last").append(FormatedoDates);
+	$(".education-entry:last").append(FormatedoURL);
+
 }
-;
+
+};
+
+
+education.display();
+
+//logs clicks
+$(document).click(function(loc) {
+var x =  loc.pageX;
+var y = loc.pageY;
+logClicks(x,y)
+});
+
+//Adds button and changes format of name.
+function inName() {
+	var parts = [] ;
+	parts = bio.name.split(" ");
+	firstname = parts[0];
+	lastname = parts[1].toUpperCase();
+	bio.name = firstname  + " " + lastname;
+	return bio.name;
+};
+
+//Should add map but doesn't. 
+
+$("#mapDiv").append(googleMap);
 
 
 

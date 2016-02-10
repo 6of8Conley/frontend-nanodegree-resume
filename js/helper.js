@@ -120,6 +120,7 @@ function initializeMap() {
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
   */
+
   function locationFinder() {
 
     // initializes an empty array
