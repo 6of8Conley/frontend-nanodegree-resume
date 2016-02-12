@@ -112,24 +112,27 @@ var projects = {
         "title": "AtlantaDanceCommunity.com",
         "dates": "2014-2016",
         "description": "Reviews and postings for creative dance in the greater Atlanta Area",
-        "images": "images/ballet-04.jpeg"
+        "images": ["images/ballet-04.jpeg", "images/ballet-03.jpeg"]
     }, {
-        "title": "uDacity Resume Site",
+        "title": "uDacity Resume Site", 
         "dates": "2015-2016",
         "description": "Learning Java Scripting and JQuery",
-        "images": "images/ballet-03.jpeg"
+        "images": ["images/ballet-03.jpeg", "images/ballet-04.jpeg"]
     }],
     "display": function display() {
         for (var title in projects.jobs) {
             $("#projects").append(HTMLprojectStart);
             var FormatedTitle = HTMLprojectTitle.replace("%data%", projects.jobs[title].title);
             var FormatedDates = HTMLprojectDates.replace("%data%", projects.jobs[title].dates);
-            var FormatedImage = HTMLprojectImage.replace("%data%", projects.jobs[title].images);
+            
             var FormatedDescripton = HTMLprojectDescription.replace("%data%", projects.jobs[title].description);
             $(".project-entry:last").append(FormatedTitle);
             $(".project-entry:last").append(FormatedDates);
             $(".project-entry:last").append(FormatedDescripton);
-            $(".project-entry:last").append(FormatedImage);
+            for (i = 0, len = projects.jobs[title].images.length; i < len; i++) { 
+                var FormatedImage = HTMLprojectImage.replace("%data%", projects.jobs[title].images[i]);
+                $(".project-entry:last").append(FormatedImage);
+                };
         }
     }
 };
@@ -140,26 +143,26 @@ var education = {
         "name": "Wayne State University",
         "location": "Detroit ",
         "degree": "Bachlor of Sciences",
-        "majors": "Chemical Engineering",
+        "majors": ["Chemical Engineering"],
         "dates": 1999,
         "url": "https://wayne.edu/"
     }, {
         "name": "Georgia State University",
         "location": "Atlanta ",
         "degree": "Masters",
-        "majors": "Business Administration",
+        "majors": ["Business Administration"],
         "dates": 2008,
         "url": "http://www.gsu.edu/"
     }],
     "onlineCourses": [{
         "title": "Git Basics",
         "school": "Udacity",
-        "year": 2015,
+        "date": 2015,
         "url": "https://www.udacity.com "
     }, {
         "title": "Front End Design",
         "school": "Udacity",
-        "year": 2016,
+        "date": 2016,
         "url": "https://www.udacity.com "
     }],
     "display": function display() {
@@ -182,7 +185,7 @@ var education = {
             $("#education").append(HTMLschoolStart);
             var FormatedoDegree = HTMLonlineTitle.replace("%data%", education.onlineCourses[title].title);
             var FormatedoSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[title].school);
-            var FormatedoDates = HTMLonlineDates.replace("%data%", education.onlineCourses[title].year);
+            var FormatedoDates = HTMLonlineDates.replace("%data%", education.onlineCourses[title].date);
             var FormatedoURL = HTMLonlineURL.replace("%data%", education.onlineCourses[title].url);
             $(".education-entry:last").append(FormatedoDegree);
             $(".education-entry:last").append(FormatedoSchool);
