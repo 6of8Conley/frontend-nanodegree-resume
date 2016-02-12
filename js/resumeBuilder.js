@@ -44,6 +44,11 @@ var bio = {
         $("#topContacts:last").prepend(FormatedGithub);
         $("#topContacts:last").prepend(FormatedMobile);
         $("#topContacts:last").prepend(FormatedEmail);
+        $("#footerContacts:last").prepend(FormatedLocation);
+        $("#footerContacts:last").prepend(FormatedTwitter);
+        $("#footerContacts:last").prepend(FormatedGithub);
+        $("#footerContacts:last").prepend(FormatedMobile);
+        $("#footerContacts:last").prepend(FormatedEmail);
         $("#header:last").append(FormatedwelcomeMsg);
         $("#header:last").append(FormatedPic);
         $("#header:last").append(HTMLskillsStart);
@@ -136,25 +141,25 @@ var education = {
         "location": "Detroit ",
         "degree": "Bachlor of Sciences",
         "majors": "Chemical Engineering",
-        "dates": "1995-1999 ",
+        "dates": 1999,
         "url": "https://wayne.edu/"
     }, {
         "name": "Georgia State University",
         "location": "Atlanta ",
         "degree": "Masters",
         "majors": "Business Administration",
-        "dates": "2005-2008 ",
+        "dates": 2008,
         "url": "http://www.gsu.edu/"
     }],
     "onlineCourses": [{
         "title": "Git Basics",
         "school": "Udacity",
-        "year": "2015 ",
+        "year": 2015,
         "url": "https://www.udacity.com "
     }, {
         "title": "Front End Design",
         "school": "Udacity",
-        "year": "2016 ",
+        "year": 2016,
         "url": "https://www.udacity.com "
     }],
     "display": function display() {
