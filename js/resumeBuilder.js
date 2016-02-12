@@ -88,13 +88,13 @@ var work = {
         "dates": "2006-2011",
         "description": "Fortune 500 Company, 17th largest private company in America"
     }],
-    "display": function display() {
-        for (var employer in work.jobs) {
+       "display": function display() {
+        for (i = 0, len = work.jobs.length; i < len; i++) {
             $("#workExperience").append(HTMLworkStart);
-            var FormatedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[employer].employer);
-            var FormatedTitle = HTMLworkTitle.replace("%data%", work.jobs[employer].title);
-            var FormatedDates = HTMLworkDates.replace("%data%", work.jobs[employer].dates);
-            var FormatedDescripton = HTMLworkDescription.replace("%data%", work.jobs[employer].description);
+            var FormatedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+            var FormatedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+            var FormatedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+            var FormatedDescripton = HTMLworkDescription.replace("%data%", work.jobs[i].description);
             var formatedEmployerTitle = FormatedEmployer + FormatedTitle;
             $(".work-entry:last").append(formatedEmployerTitle);
             $(".work-entry:last").append(FormatedDates);
@@ -119,12 +119,11 @@ var projects = {
         "description": "Learning Java Scripting and JQuery",
         "images": ["images/ballet-03.jpeg", "images/ballet-04.jpeg"]
     }],
-    "display": function display() {
+  "display": function display() {
         for (var title in projects.jobs) {
             $("#projects").append(HTMLprojectStart);
             var FormatedTitle = HTMLprojectTitle.replace("%data%", projects.jobs[title].title);
             var FormatedDates = HTMLprojectDates.replace("%data%", projects.jobs[title].dates);
-            
             var FormatedDescripton = HTMLprojectDescription.replace("%data%", projects.jobs[title].description);
             $(".project-entry:last").append(FormatedTitle);
             $(".project-entry:last").append(FormatedDates);
@@ -135,7 +134,7 @@ var projects = {
                 };
         }
     }
-};
+ };
 projects.display();
 
 var education = {
